@@ -39,7 +39,7 @@ fi
 echo "Do you wish to expose ports on the vm? [y/n]"
 read optp
 
-if [ $optp = y && $optv = y]
+if [ $optp = y ] && [ $optv = y]
 then
 	echo $vmName
 	echo "Choose a vm from the list above to open ports on"
@@ -57,6 +57,7 @@ then
 	export vm=$vm
 	
 elif [ $optp = y ]
+then
 	echo "insert the ports you wish to open, seperate ports by spaces"
 	read ports
 
@@ -65,7 +66,9 @@ elif [ $optp = y ]
 		az vm open-port -g ${groupName} -n ${vm} --port $port
 	done
 
-	echo ports opened
+	echo "ports opened"
+else 
+	echo "No ports have been opened"
 fi
 
 ip=$(az vm list-ip-addresses -g ${groupName} -n ${vm} | grep ipAddress | cut -d '"' -f4)
