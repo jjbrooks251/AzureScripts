@@ -39,7 +39,7 @@ fi
 echo "Do you wish to expose ports on the vm? [y/n]"
 read optp
 
-if [ $optp = y ] && [ $optv = y]
+if [ $optp = y ] && [ $optv = y ]
 then
 	echo $vmName
 	echo "Choose a vm from the list above to open ports on"
@@ -77,7 +77,7 @@ export ip=$ip
 echo "Do you want resources to be installed onto your vm? [y/n]"
 read opti
 
-if [$opti = y ]
+if [ $opti = y ]
 then
 	echo "do you want docker on your vm? [y/n]"
 	read optd
