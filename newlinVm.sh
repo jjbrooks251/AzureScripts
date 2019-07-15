@@ -1,3 +1,5 @@
+priority=900
+
 echo "Do you want to make a new resouce group? [y/n]"
 read optg
 
@@ -50,10 +52,11 @@ then
 
 	for port in $ports
 	do
-		az vm open-port -g ${groupName} -n ${vm} --port $port
+		az vm open-port -g ${groupName} -n ${vm} --port $port --priority $priority
+		((priority++))
 	done
 
-	echo ports opened
+	echo "ports opened"
 	export vm=$vm
 	
 elif [ $optp = y ]
@@ -63,7 +66,8 @@ then
 
 	for port in $ports
 	do
-		az vm open-port -g ${groupName} -n ${vm} --port $port
+		az vm open-port -g ${groupName} -n ${vm} --port $port --priority $priority
+		((priority++))
 	done
 
 	echo "ports opened"
