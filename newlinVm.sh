@@ -1,5 +1,3 @@
-priority=900
-
 echo "Do you want to make a new resouce group? [y/n]"
 read optg
 
@@ -40,6 +38,8 @@ fi
 
 echo "Do you wish to expose ports on the vm? [y/n]"
 read optp
+
+priority=900
 
 if [ $optp = y ] && [ $optv = y ]
 then
